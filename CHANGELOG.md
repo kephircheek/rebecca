@@ -1,1 +1,4 @@
 ## [Unreleased]
+
+### Added
+- Vim configs

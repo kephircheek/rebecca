@@ -1,0 +1,136 @@
+" ------ PLUGINS ------
+"" Load plugins
+so ~/.vim/plugins.vim
+" ----------------------
+
+filetype plugin on
+set encoding=utf-8
+
+" --- STYLE ---
+"
+" Highlight search items
+set hlsearch
+set number
+"
+" Colors
+set background=dark
+color PaperColor
+"
+" Relative number in visual mode
+augroup every
+  autocmd!
+  au InsertEnter * set norelativenumber
+  au InsertLeave * set relativenumber
+augroup END
+" -------------
+
+
+" --- FEATURES ---
+" 
+" Syntax
+let python_highlight_all=1
+syntax on
+" 
+set spell spelllang=en_us
+"
+set mouse=a
+"
+" System clipboard only MacOS
+set clipboard=unnamed
+"
+" Smart search
+set smartcase
+set ignorecase
+
+" Split: specify where the splits should occur
+set splitbelow
+set splitright
+"
+"
+" Cancel redraw when macros
+" set lazyredraw
+"
+" Need to fast update hunk with vim-gitgutter
+set updatetime=100
+"
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+"
+" Close preview window after completion 
+let g:ycm_autoclose_preview_window_after_completion=1
+
+
+
+" --- SHORTCUTS ---
+"
+" fast switch buffer
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+"
+" fast switch tab
+nnoremap <s-j> gt
+nnoremap <s-K> gT
+"
+" exec sh files via Ctrl + Y
+autocmd filetype sh nnoremap <C-Y> :w <bar> exec '!clear; source '.shellescape('%')<CR>
+"
+" folding
+nnoremap <space> za
+vnoremap <Space> zf
+"
+" goto defenition
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" ------------------
+
+
+" --- LIGHTLINE ---
+set laststatus=2
+
+let g:lightline = {
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'gitbranch', 'gitstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'gitbranch': 'FugitiveHead',
+	\   'filename': 'LightlineFilename',
+	\  	'gitstatus': 'GitStatus'
+	\ },
+	\ }
+
+function! LightlineFilename()
+	return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+		  \ &filetype ==# 'unite' ? unite#get_status_string() :
+		  \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+		  \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+" ----------------
+
+
+" --- FORMATING ----
+"
+" mutt: limit the width of e-mail text to 72 characters
+au BufRead /tmp/mutt-* set tw=72
+"
+au BufNewFile,BufRead *.json,*.html,*.css,*.xml
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
+"
+" default
+set tabstop=4
+set shiftwidth=4
+" -------------
+
