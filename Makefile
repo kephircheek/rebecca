@@ -2,10 +2,10 @@
 OS_NAME := $(shell uname -s | tr A-Z a-z)
 HOME := ~/
 DOT := .
-CONFIG =: .config/
+CONFIG := .config/
 
 # file-independant targets 
-.PHONY: vim vim-install test
+.PHONY: vim vifm all test
 
 islink = $(shell if [[ -L $(1) ]]; then echo true; fi)
 isexits = $(shell test -e $(1) && echo true)
@@ -18,4 +18,14 @@ vim:
 	@echo Vim 8 should be installed.
 	$(info $(call remove,$(HOME)$(DOT)$@))
 	$(info $(call create_link,$@,$(HOME)$(DOT)))
-	@echo Done!
+	@echo $@ setup ended!
+
+vifm:
+	@echo Vifm should be installed
+	$(info $(call remove,$(HOME)$(CONFIG)$@))
+	$(info $(call create_link,$@,$(HOME)$(CONFIG)))
+	@echo $@ setup ended!
+
+
+all: vim vifm
+	@echo $@ setup ended!
