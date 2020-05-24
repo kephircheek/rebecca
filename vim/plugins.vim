@@ -13,6 +13,10 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'w0rp/ale'
+Plug 'hdima/python-syntax'
+
+"" Color
+Plug 'NLKNguyen/papercolor-theme'
 
 "" Search by CTRL-P
 Plug 'kien/ctrlp.vim' 
@@ -43,6 +47,3 @@ Plug 'skywind3000/asyncrun.vim'
 
 " ...
 call plug#end()
-" ?? filetype plugin indent on    " required
-
-

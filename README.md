@@ -43,3 +43,15 @@ Install on ubuntu:
 ```bash
 sudo apt install vifm
 ```
+
+## python linter
+
+Install on mac:
+```bash
+pip intall pylint flake8
+```
+
+Install on ubuntu:
+```bash
+sudo apt install pylint3 python3-flake8
+```
