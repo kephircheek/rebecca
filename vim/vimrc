@@ -1,7 +1,7 @@
 " ------ PLUGINS ------
 "" Load plugins
 so ~/.vim/plugins.vim
-" ----------------------
+" --------------------------------------------------------------------------------
 
 filetype plugin on
 set encoding=utf-8
@@ -22,7 +22,7 @@ augroup every
   au InsertEnter * set norelativenumber
   au InsertLeave * set relativenumber
 augroup END
-" -------------
+" --------------------------------------------------------------------------------
 
 
 " --- FEATURES ---
@@ -31,7 +31,7 @@ augroup END
 let python_highlight_all=1
 syntax on
 " 
-set spell spelllang=en_us
+set spell spelllang=ru,en_us
 "
 set mouse=a
 "
@@ -59,8 +59,13 @@ set foldlevel=99
 "
 " Close preview window after completion 
 let g:ycm_autoclose_preview_window_after_completion=1
-
-
+"
+" Replace netrw with vifm
+let g:vifm_replace_netrw = 1
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+let g:vifm_embed_term    = 1
+" --------------------------------------------------------------------------------
 
 " --- SHORTCUTS ---
 "
@@ -83,7 +88,7 @@ vnoremap <Space> zf
 "
 " goto defenition
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" ------------------
+" --------------------------------------------------------------------------------
 
 
 " --- LIGHTLINE ---
@@ -116,7 +121,7 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-" ----------------
+" --------------------------------------------------------------------------------
 
 
 " --- FORMATING ----
@@ -132,5 +137,5 @@ au BufNewFile,BufRead *.json,*.html,*.css,*.xml
 " default
 set tabstop=4
 set shiftwidth=4
-" -------------
+" --------------------------------------------------------------------------------
 
