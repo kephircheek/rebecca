@@ -6,3 +6,4 @@ vim/plugged
 .netrwhist
 
 .DS_Store
+.idea
