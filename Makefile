@@ -31,8 +31,14 @@ vim:
 
 vifm:
 	$(info $(call inpath,$@))
+ifeq ($(OS_NAME),darwin)
 	$(info $(call remove,$(HOME)/$(CONFIG)/$@))
 	$(info $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/$(CONFIG)/$@))
+endif
+ifeq ($(OS_NAME),linux)
+	$(info $(call remove,$(HOME)/$(DOT)$@))
+	$(info $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/$(DOT)$@))
+endif
 	@echo $@ setup ended!
 
 zsh:
