@@ -8,3 +8,4 @@
 - Python syntax on
 - Check a command existing in PATH before a config loading
 - Ohmyzsh config file
+- Tmux config file

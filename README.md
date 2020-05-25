@@ -3,6 +3,8 @@
 Backuped configs:
 - vim
 - vifm
+- ohmyzsh
+- tmux
 
 Load backuped configs with
 ```

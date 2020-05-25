@@ -6,7 +6,7 @@ DOT := .
 CONFIG := .config
 
 # file-independant targets
-.PHONY: vim vifm zsh all test
+.PHONY: vim vifm zsh tmux all test
 
 # Check that path=$(1) is symbolic link
 islink = $(shell if [[ -L $(1) ]]; then echo true; fi)
@@ -41,6 +41,11 @@ zsh:
 	$(info $(call create_link,$(PROJECT_DIR)/$@/$@rc,$(HOME)/$(DOT)$@rc))
 	@echo $@ setup ended!
 
+tmux:
+	$(info $(call inpath,$@))
+	$(info $(call remove,$(HOME)/$(DOT)$@.conf))
+	$(info $(call create_link,$(PROJECT_DIR)/$@/$@.conf,$(HOME)/$(DOT)$@.conf))
+	@echo $@ setup ended!
 
-all: vim vifm
+all: vim vifm zsh tmux
 	@echo $@ setup ended!
