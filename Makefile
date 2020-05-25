@@ -9,7 +9,7 @@ CONFIG := .config
 .PHONY: vim vifm zsh tmux all test
 
 # Check that path=$(1) is symbolic link
-islink = $(shell if [[ -L $(1) ]]; then echo true; fi)
+islink = $(shell test -L $(1) && echo true)
 # Check that path=$(1) exist and not link
 isexits = $(shell test -e $(1) && echo true)
 # Remove existing link on path=$(1) if exist
