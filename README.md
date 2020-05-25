@@ -1,17 +1,17 @@
-# Backup 
+# Backup
 
 Backuped configs:
 - vim
 - vifm
 
-Load backuped configs with 
+Load backuped configs with
 ```
 make all
 ```
 
-## Example: load app backup  
+## Example: load app backup
 
-Restore vim configs from backup 
+Restore vim configs from backup
 ```bash
 make vim
 ```
@@ -32,7 +32,7 @@ sudo apt update
 sudo apt install vim
 ```
 
-### vifm 
+### vifm
 
 Install on mac:
 ```bash

@@ -44,11 +44,11 @@ augroup END
 
 
 " --- FEATURES ---
-" 
+"
 " Syntax
 let python_highlight_all=1
 syntax on
-" 
+"
 set spell spelllang=ru,en_us
 "
 set mouse=a
@@ -75,7 +75,7 @@ set updatetime=100
 set foldmethod=indent
 set foldlevel=99
 "
-" Close preview window after completion 
+" Close preview window after completion
 let g:ycm_autoclose_preview_window_after_completion=1
 "
 " Replace netrw with vifm
@@ -147,6 +147,9 @@ let g:vimshell_force_overwrite_statusline = 0
 "
 " mutt: limit the width of e-mail text to 72 characters
 au BufRead /tmp/mutt-* set tw=72
+"
+" Delete trailing whitespace with bufer writing
+autocmd BufWritePre * %s/\s\+$//e
 "
 au BufNewFile,BufRead *.json,*.html,*.css,*.xml
     \ set tabstop=2 |

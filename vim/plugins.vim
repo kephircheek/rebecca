@@ -6,37 +6,37 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'tmhedberg/SimpylFold' 
-Plug 'vim-scripts/indentpython.vim' 
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
 
-"" Syntax
+" Syntax
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'w0rp/ale'
 Plug 'hdima/python-syntax'
 
-"" Color
+" Color
 Plug 'NLKNguyen/papercolor-theme'
 
-"" Search by CTRL-P
-Plug 'kien/ctrlp.vim' 
+" Search by CTRL-P
+Plug 'kien/ctrlp.vim'
 
-"" Git 
-""" command like `Gwrite/Gcommit`
+" Git
+"" command like `Gwrite/Gcommit`
 Plug 'tpope/vim-fugitive'
-""" shows a git diff in the sign column
+"" shows a git diff in the sign column
 Plug 'airblade/vim-gitgutter'
 
-"" File manager
+" File manager
 Plug 'vifm/vifm.vim'
 Plug 'tpope/vim-eunuch'
 
-"" Status line
+" Status line
 Plug 'itchyny/lightline.vim'
 
-"" Autocomplete
+" Autocomplete
 " Plug 'vim-surround'
-Plug 'Valloric/YouCompleteMe' 
+Plug 'Valloric/YouCompleteMe'
 " brew install cmake macvim python
 " brew install mono go nodejs
 " cd ~/.vim/bundle/YouCompleteMe
