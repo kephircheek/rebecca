@@ -6,7 +6,7 @@ DOT := .
 CONFIG := .config
 
 # file-independant targets
-.PHONY: vim vifm all test
+.PHONY: vim vifm zsh all test
 
 # Check that path=$(1) is symbolic link
 islink = $(shell if [[ -L $(1) ]]; then echo true; fi)
@@ -34,6 +34,13 @@ vifm:
 	$(info $(call remove,$(HOME)/$(CONFIG)/$@))
 	$(info $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/$(CONFIG)/$@))
 	@echo $@ setup ended!
+
+zsh:
+	$(info $(call inpath,$@))
+	$(info $(call remove,$(HOME)/$(DOT)$@rc))
+	$(info $(call create_link,$(PROJECT_DIR)/$@/$@rc,$(HOME)/$(DOT)$@rc))
+	@echo $@ setup ended!
+
 
 all: vim vifm
 	@echo $@ setup ended!
