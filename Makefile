@@ -49,7 +49,9 @@ zsh:
 
 tmux:
 	$(info $(call inpath,$@))
+	$(info $(call remove,$(HOME)/$(DOT)$@))
 	$(info $(call remove,$(HOME)/$(DOT)$@.conf))
+	$(info $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/$(DOT)$@))
 	$(info $(call create_link,$(PROJECT_DIR)/$@/$@.conf,$(HOME)/$(DOT)$@.conf))
 	@echo $@ setup ended!
 

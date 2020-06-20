@@ -40,6 +40,23 @@ augroup every
   au InsertEnter * set norelativenumber
   au InsertLeave * set relativenumber
 augroup END
+"
+" TMUX status line
+let g:tmuxline_theme = 'lightline'
+let g:tmuxline_separators = {
+    \ 'left'      : '',
+    \ 'left_alt'  : '|',
+    \ 'right'     : '',
+    \ 'right_alt' : '|',
+    \ 'space'     : ' '}
+let g:tmuxline_preset = {
+	\ 'a'    : '#S',
+	\ 'b'    : '#(whoami)',
+	\ 'win'  : ['#I', '#W'],
+	\ 'cwin' : '#W',
+	\ 'x'    : '#(ssh_status)',
+	\ 'y'    : ['%a %d', '%b', '%R'],
+	\ 'z'    : '#H'}
 " --------------------------------------------------------------------------------
 
 

@@ -1,3 +1,7 @@
+# tmux
+tmux/plugins/*
+!tmux/plugins/tpm
+
 # vifm
 vifminfo*
 Trash

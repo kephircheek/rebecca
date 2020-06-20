@@ -33,6 +33,7 @@ Plug 'tpope/vim-eunuch'
 
 " Status line
 Plug 'itchyny/lightline.vim'
+Plug 'edkolev/tmuxline.vim'
 
 " Autocomplete
 " Plug 'vim-surround'
