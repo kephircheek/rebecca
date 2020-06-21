@@ -1,16 +1,17 @@
 # Backup
 
-Backuped configs:
-- vim
-- vifm
-- ohmyzsh
-- tmux
+Backuped configs (make targets):
+- [vim](https://www.vim.org/)
+- [vifm](https://vifm.info/)
+- [zsh](https://github.com/ohmyzsh/ohmyzsh)
+- [tmux](https://github.com/tmux/tmux/wiki)
 
-## Usage:
+## Load backup:
 
-1. Cloning repo.  **Warning: Use recursive cloning**
-```
-git clone --recurse-submodules https://github.com/kephircheek/backup.git
+1. Cloning repo. **Warning: Use recursive cloning.**
+```bash
+$ git clone --recurse-submodules https://github.com/kephircheek/backup.git
+$ cd backup
 ```
 
 2. Install dependencies
@@ -19,65 +20,47 @@ git clone --recurse-submodules https://github.com/kephircheek/backup.git
 - zsh
 - tmux > 2.4
 
+```bash
+# MacOS
+$ brew install $(cat deps/macos/requirements.brew)
+$ pip install -r deps/macos/requirements.pip
+```
+
+```bash
+# Ubuntu
+$ ./deps/ubuntu/install.sh
+```
 3. Load backuped configs with
 ```
-make all
+$ make all
 ```
 
-4. Install plugins for vim, tmux and other.
+4. Install plugins for vim and tmux.
 
 - in vim run `:PlugInstall`
-- in tmux press `Ctrl-b I`(capital I) see [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
-
-## Example: load one app backup
-
-Restore vim configs from backup
+- install YouCompleteMe
 ```bash
-make vim
+cd ~/.vim/plugged/YouCompleteMe
+python3 install.py --all
+```
+- in tmux press `Ctrl-b I` (capital I) see [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
+
+## Examples
+- Delete all configs
+```bash
+$ make clean
 ```
 
-## Dependencies
-
-### vim (>=8.0)
-
-Install on mac:
+- Delete vim configs
 ```bash
-brew install macvim
+$ make clean_vim
 ```
 
-Install on ubuntu:
+- Restore vim configs from backup
 ```bash
-sudo add-apt-repository ppa:jonathonf/vim
-sudo apt update
-sudo apt install vim
+$ make vim
 ```
 
-### vifm
-
-Install on mac:
-```bash
-brew install vifm
-```
-
-Install on ubuntu:
-```bash
-...
-```
-
-### Python linter for vim
-
-Install on mac:
-```bash
-pip intall pylint flake8
-```
-
-Install on ubuntu:
-```bash
-sudo apt install pylint3 python3-flake8
-```
-
-### tmux
-Press `Ctrl-b I` to install plugins (see Tmux Plugin Manager)
-
-
+## Refs
+[Clipboard sharing on Mac OS X is easy](https://gist.github.com/romainl/96180b5b8e7722a7428c)
 

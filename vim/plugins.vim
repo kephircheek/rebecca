@@ -38,10 +38,6 @@ Plug 'edkolev/tmuxline.vim'
 " Autocomplete
 " Plug 'vim-surround'
 Plug 'Valloric/YouCompleteMe'
-" brew install cmake macvim python
-" brew install mono go nodejs
-" cd ~/.vim/bundle/YouCompleteMe
-" python3 install.py --all
 
 " Asyncrun
 Plug 'skywind3000/asyncrun.vim'

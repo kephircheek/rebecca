@@ -34,8 +34,25 @@ backup = $(shell echo Backup existing config \"$(1)\"; mv $(1) $(1)-$(shell date
 remove = $(or $(call remove_link,$(1)),$(and $(call isexits,$(1)),$(call backup,$(1))), No removes.)
 # Create link from path=$(1) to path=$(2))
 create_link = $(shell echo Linking \"$(1)\" to \"$(2)\"; ln -s $(1) $(2))
+# Get instruction to install package=$(2) on platform=$(1)
+get_install_instruction = $(or $(and $(findstring darwin,$(1)),$\
+                                     $(or $(and $(shell cat deps/macos/requirements.brew | grep $(2)),$\
+                                                brew install $(shell cat deps/macos/requirements.brew | grep $(2))),$\
+                                          $(and $(shell cat deps/macos/requirements.pip | grep $(2)),$\
+                                                pip install $(shell cat deps/macos/requirements.pip | grep $(2))),$\
+                                          $(and $(shell ls deps/macos | grep $(2)),$\
+                                               ./deps/macos/$(shell ls deps/macos | grep $(2))/install.sh))),$\
+                               $(and $(findstring linux,$(1)),$\
+                                     $(or $(and $(shell cat deps/ubuntu/requirements.apt | grep $(2)),$\
+                                                sudo apt install $(shell cat deps/ubuntu/requirements.apt | grep $(2))),$\
+                                          $(and $(shell ls deps/ubuntu | grep $(2)),$\
+                                                ./deps/ubuntu/$(shell ls deps/ubuntu | grep $(2))/install.sh))),$\
+                               sorry... no instructions)
+
 # Check if command=$(1) in PATH
-inpath = $(or $(and $(shell which $(1)),Command in path.),$(error Please, install "$(1)" first (not in path)))
+inpath = $(or $(and $(shell which $(1)),Command in path.),$\
+              $(error Please, install "$(1)" first (not in path).\
+              Try command: "$(call get_install_instruction,$(OS_NAME),$(1))"))
 # Upper case
 upper = $(shell echo $(1) | tr '[:lower:]' '[:upper:]')
 # Get version of executable=$(1) with flag=$(2)
@@ -52,14 +69,22 @@ check_version = $(shell [ $(call major_version,$(1),$(2)) -gt $($(call upper,$(1
 is_supported_version = $(or $(and $(call check_version,$(1),$(2)),$\
 					   Version $(call version,$(1),$(2)) is ok),$\
 					   $(error $(call upper,$(1)) should be upgraded up to $\
-					   $($(call upper,$(1))_MAJOR_VERSION).$($(call upper,$(1))_MINOR_VERSION)))
+					   $($(call upper,$(1))_MAJOR_VERSION).$($(call upper,$(1))_MINOR_VERSION) $\
+					   try command: "$(call get_install_instruction,$(OS_NAME),$(1))"))
 
+# Check vim feature=$(1)
+check_vim_features = $(or $(and $(shell vim --version | grep -o +$(1)),$\
+                                Python available),$\
+                          $(error Rrequires Vim compiled with Python (3.5.1+) support.\
+						          Install requirements and recompile vim with:\
+                                  "$(call get_install_instruction,$(OS_NAME),vim)"))
 clean_vim:
 	$(info vim: $(call remove,$(HOME)/.vim))
 
 vim: clean_vim
 	$(info $@: $(call inpath,$@))
 	$(info $@: $(call is_supported_version,$@))
+	$(info $@: $(call check_vim_features,python3))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
 	@echo ----- $@ is done -----
 

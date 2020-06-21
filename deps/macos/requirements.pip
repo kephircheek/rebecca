@@ -1,0 +1,3 @@
+# python linters
+pylint
+flake8
