@@ -10,3 +10,4 @@
 - Ohmyzsh config file
 - Tmux config file
 - Check an installed package version before a config loading
+- Script to install dependencies
