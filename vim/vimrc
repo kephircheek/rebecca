@@ -73,6 +73,10 @@ set mouse=a
 " System clipboard only MacOS
 set clipboard=unnamed
 "
+" Erasing previously entered characters in insert mode
+"  or use `set backspace=2`
+set backspace=indent,eol,start
+"
 " Smart search
 set smartcase
 set ignorecase
