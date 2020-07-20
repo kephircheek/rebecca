@@ -61,6 +61,13 @@ $ make clean_vim
 $ make vim
 ```
 
+## Features
+- Automatically start tmux on a remote login
+Just append next line to your shell "run command" file (`.bashrc`):
+```
+source ~/.tmux/autostart.sh
+```
+
 ## Refs
 [Clipboard sharing on Mac OS X is easy](https://gist.github.com/romainl/96180b5b8e7722a7428c)
 
