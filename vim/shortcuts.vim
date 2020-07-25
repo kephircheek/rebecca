@@ -1,12 +1,20 @@
-" fast switch buffer
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" fast jump over document
+nnoremap <c-j> 10j
+nnoremap <c-k> 10k
+nnoremap <c-h> ^
+nnoremap <c-l> $
+nnoremap <c-u> gg
+nnoremap <c-d> G
 
 " fast switch tab
 nnoremap <s-j> gt
-nnoremap <s-K> gT
+nnoremap <s-k> gT
+
+" fast save
+nmap <c-s> :w<CR>
+
+" fast exit
+nmap <c-q> :wq<CR>
 
 " exec sh files via Ctrl + Y
 autocmd filetype sh nnoremap <C-Y> :w <bar> exec '!clear; source '.shellescape('%')<CR>
