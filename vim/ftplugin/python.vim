@@ -1,10 +1,10 @@
-set tabstop=4 
-set softtabstop=4 
-set shiftwidth=4 
-set textwidth=79  
-set expandtab  
-set autoindent 
-set fileformat=unix 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set expandtab
+set autoindent
+set fileformat=unix
 
 " see the docstrings for folded code
 let g:SimpylFold_docstring_preview=1
@@ -14,10 +14,10 @@ let b:ale_linters = ['pyflakes', 'flake8', 'pylint']
 let g:ale_fixers = { '*': ['trim_whitespace'] }
 let g:ale_fix_on_save = 1
 
-" auto open qickwindow with fix hight 
+" auto open qickwindow with fix hight
 let g:asyncrun_open = 25
 
-" delete spaces in the end of line 
+" delete spaces in the end of line
 " autocmd BufWritePre * :%s/\s\+$//e
 
 " Run script via Ctrl-Y
