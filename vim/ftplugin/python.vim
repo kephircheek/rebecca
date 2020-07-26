@@ -24,8 +24,8 @@ let g:asyncrun_open = 25
 "nnoremap <C-Y> :w <bar> exec '!clear; python '.shellescape('%')<CR>
 nnoremap <c-y> :w <bar> :AsyncRun -raw python %<CR>
 
-" Run tests via Ctrl-T
-nnoremap <C-T> :w <bar> exec '!clear; python -m unittest discover tests/'<CR>
+" Run tests for current file with Ctrl-T
+nmap <C-T> :w <bar> :!clear; python -m unittest discover -p %:t<CR>
 
 
 " --- Tips ---
