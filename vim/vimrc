@@ -63,9 +63,9 @@ let g:vifm_embed_term    = 1
 au BufRead /tmp/mutt-* set tw=72
 "
 " Delete trailing whitespace with bufer writing
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre *.py %s/\s\+$//e
 "
-au BufNewFile,BufRead *.json,*.html,*.css,*.xml
+au BufNewFile,BufRead *.json,*.css,*.xml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
@@ -73,5 +73,9 @@ au BufNewFile,BufRead *.json,*.html,*.css,*.xml
 " default
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
+set textwidth=101
+set expandtab
+set autoindent
+set fileformat=unix
 " --------------------------------------------------------------------------------
-

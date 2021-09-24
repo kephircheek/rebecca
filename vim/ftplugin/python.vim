@@ -1,7 +1,7 @@
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
+set textwidth=101
 set expandtab
 set autoindent
 set fileformat=unix
@@ -25,7 +25,7 @@ let g:asyncrun_open = 25
 nnoremap <c-y> :w <bar> :AsyncRun -raw python %<CR>
 
 " Run tests for current file with Ctrl-T
-nmap <C-T> :w <bar> :!clear; python -m unittest discover -p %:t<CR>
+nmap <C-T> :w <bar> :!clear; python -m unittest discover -v -p %:t<CR>
 
 
 " --- Tips ---

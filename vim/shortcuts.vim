@@ -25,3 +25,6 @@ vnoremap <Space> zf
 
 " goto defenition
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Standard CLI commands in vim command line
+cnoremap <C-A> <Home>

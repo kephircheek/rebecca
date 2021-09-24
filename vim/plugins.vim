@@ -14,6 +14,11 @@ Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'w0rp/ale'
 Plug 'hdima/python-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'integralist/vim-mypy'
+Plug 'posva/vim-vue'
+Plug 'psf/black', { 'branch': 'stable' } 
 
 " Color
 Plug 'NLKNguyen/papercolor-theme'
