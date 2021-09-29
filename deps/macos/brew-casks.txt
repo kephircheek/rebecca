@@ -1,0 +1,14 @@
+basictex
+docker
+font-hack-nerd-font
+iina
+jupyter-notebook-viewer
+mattermost
+omnidisksweeper
+osxfuse
+qutebrowser
+telegram-desktop
+thunderbird
+tunnelblick
+vlc
+xquartz
