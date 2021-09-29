@@ -127,6 +127,13 @@ tmux: clean_tmux
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/$@.conf,$(HOME)/.$@.conf))
 	@echo ----- $@ is done -----
 
+clean_qutebrowser: 
+	$(info tmux: $(call remove,$(HOME)/.qutebrowser))
+
+qutebrowser: clean_qutebrowser
+	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
+	@echo ----- $@ is done -----
+
 all: vim vifm zsh tmux
 	@echo ----- $@ is done -----
 
