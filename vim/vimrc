@@ -52,9 +52,12 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "
 " Replace netrw with vifm
 let g:vifm_replace_netrw = 1
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
 let g:vifm_embed_term    = 1
+let g:loaded_netrw       = 1 " tells netrw.vim not to load as its been loaded already.
+let g:loaded_netrwPlugin = 1 " tells netrw.vim not to load as its been loaded already.
+"
+" Disable swap files 
+set noswapfile
 " --------------------------------------------------------------------------------
 
 " --- FORMATING ----
