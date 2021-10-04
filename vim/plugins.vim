@@ -9,6 +9,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 
+" Intelligently reopen files at your last edit position
+Plug 'farmergreg/vim-lastplace'
+
 " Syntax
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
