@@ -1,3 +1,6 @@
+# common
+lindsey*
+ 
 # tmux
 tmux/plugins/*
 !tmux/plugins/tpm
