@@ -79,3 +79,10 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+
+"Link color of number column to color of sign column
+autocmd ColorScheme * highlight! link SignColumn LineNr
+autocmd ColorScheme * highlight! link SyntasticErrorSign LineNr
+autocmd ColorScheme * highlight! link SyntasticWarningSign LineNr
+autocmd ColorScheme * highlight! link SyntasticStyleErrorSign LineNr
+autocmd ColorScheme * highlight! link SyntasticStyleWarningSign LineNr
