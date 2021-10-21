@@ -1,0 +1,7 @@
+Host gitlab
+	HostName gilab.com
+	IdentityFile ~/.ssh/id_rsa
+
+Host solidwal
+	HostName dev.solidwall.io:solidwall
+	IdentityFile ~/.ssh/id_rsa

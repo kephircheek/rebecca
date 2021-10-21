@@ -133,6 +133,16 @@ qutebrowser: clean_qutebrowser
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
 	@echo ----- $@ is done -----
 
+check_ssh:
+	$(info [$@] Is '.ssh' exists? $(or $(call is_exists,$(HOME)/.ssh),$(error ssh config dir not found)))
+	$(info [$@] Is 'ssh' in $$PATH? $(call in_path,ssh))
+
+clean_ssh: check_ssh
+	$(info $@: $(call remove,$(HOME)/.ssh/config))
+
+ssh: clean_ssh
+	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/config,$(HOME)/.$@/config))
+
 all: vim vifm zsh tmux
 	@echo ----- $@ is done -----
 
