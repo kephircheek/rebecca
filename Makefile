@@ -105,12 +105,14 @@ vifm: clean_vifm
 
 clean_zsh:
 	$(info zsh: $(call remove,$(HOME)/.zshrc))
+	$(info zsh: $(call remove,$(HOME)/.zprofile))
 
 zsh: clean_zsh
 	$(info $@: $(call in_path,$@))
 	$(info $@: $(call is_supported_version,$@))
 	$(and $(shell ls -1 ~ | grep .oh-my-zsh),$(error Please, install oh-my-zsh. See https://ohmyz.sh/#install))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/$@rc,$(HOME)/.$@rc))
+	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/zprofile,$(HOME)/.zprofile))
 	@echo ----- $@ is done -----
 
 clean_tmux:
