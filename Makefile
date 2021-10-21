@@ -129,7 +129,7 @@ tmux: clean_tmux
 	@echo ----- $@ is done -----
 
 clean_qutebrowser: 
-	$(info tmux: $(call remove,$(HOME)/.qutebrowser))
+	$(info qutebrowser: $(call remove,$(HOME)/.qutebrowser))
 
 qutebrowser: clean_qutebrowser
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
