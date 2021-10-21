@@ -1,4 +1,4 @@
-# Backup
+# Rebecca
 
 Backuped configs (make targets):
 - [vim](https://www.vim.org/)
@@ -10,7 +10,7 @@ Backuped configs (make targets):
 
 1. Cloning repo. **Warning: Use recursive cloning.**
 ```bash
-$ git clone --recurse-submodules https://github.com/kephircheek/backup.git
+$ git clone --recurse-submodules https://github.com/kephircheek/rebbeca.git
 $ cd backup
 ```
 
