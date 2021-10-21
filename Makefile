@@ -23,15 +23,15 @@ ZSH_MINOR_VERSION = 0
 .DEFAULT_GOAL := all
 
 # Check that path=$(1) is symbolic link
-islink = $(shell test -L $(1) && echo true)
+is_link = $(shell test -L $(1) && echo true)
 # Check that path=$(1) exist and not link
-isexits = $(shell test -e $(1) && echo true)
+is_exists = $(shell test -e $(1) && echo true)
 # Remove existing link on path=$(1) if exist
-remove_link = $(and $(call islink,$(1)),$(shell echo Remove existing link \"$(1)\"; rm $(1)))
+remove_link = $(and $(call is_link,$(1)),$(shell echo Remove existing link \"$(1)\"; rm $(1)))
 # Backup item if exists on path=$(1)
 backup = $(shell echo Backup existing config \"$(1)\"; mv $(1) $(1)-$(shell date +%s))
 # Remove existing item on path=$(1)
-remove = $(or $(call remove_link,$(1)),$(and $(call isexits,$(1)),$(call backup,$(1))), No removes.)
+remove = $(or $(call remove_link,$(1)),$(and $(call is_exists,$(1)),$(call backup,$(1))), No removes.)
 # Create link from path=$(1) to path=$(2))
 create_link = $(shell echo Linking \"$(1)\" to \"$(2)\"; ln -s $(1) $(2))
 # Get instruction to install package=$(2) on platform=$(1)
@@ -50,7 +50,7 @@ get_install_instruction = $(or $(and $(findstring darwin,$(1)),$\
                                sorry... no instructions)
 
 # Check if command=$(1) in PATH
-inpath = $(or $(and $(shell which $(1)),Command in path.),$\
+in_path = $(or $(and $(shell which $(1)),Command in path.),$\
               $(error Please, install "$(1)" first (not in path).\
               Try command: "$(call get_install_instruction,$(OS_NAME),$(1))"))
 # Upper case
@@ -82,7 +82,7 @@ clean_vim:
 	$(info vim: $(call remove,$(HOME)/.vim))
 
 vim: clean_vim
-	$(info $@: $(call inpath,$@))
+	$(info $@: $(call in_path,$@))
 	$(info $@: $(call is_supported_version,$@))
 	$(info $@: $(call check_vim_features,python3))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
@@ -91,13 +91,14 @@ vim: clean_vim
 clean_vifm:
 ifeq ($(OS_NAME),darwin)
 	$(info vifm: $(call remove,$(HOME)/$(CONFIG)/vifm))
+	$(info vifm: $(call remove,$(HOME)/.vifm))
 endif
 ifeq ($(OS_NAME),linux)
 	$(info vifm: $(call remove,$(HOME)/.vifm))
 endif
 
 vifm: clean_vifm
-	$(info $@: $(call inpath,$@))
+	$(info $@: $(call in_path,$@))
 	$(info $@: $(call is_supported_version,$@))
 ifeq ($(OS_NAME),darwin)
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/$(CONFIG)/$@))
@@ -111,7 +112,7 @@ clean_zsh:
 	$(info zsh: $(call remove,$(HOME)/.zshrc))
 
 zsh: clean_zsh
-	$(info $@: $(call inpath,$@))
+	$(info $@: $(call in_path,$@))
 	$(info $@: $(call is_supported_version,$@))
 	$(and $(shell ls -1 ~ | grep .oh-my-zsh),$(error Please, install oh-my-zsh. See https://ohmyz.sh/#install))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/$@rc,$(HOME)/.$@rc))
@@ -122,7 +123,7 @@ clean_tmux:
 	$(info tmux: $(call remove,$(HOME)/.tmux.conf))
 
 tmux: clean_tmux
-	$(info $@: $(call inpath,$@))
+	$(info $@: $(call in_path,$@))
 	$(info $@: $(call is_supported_version,$@,-V))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/$@.conf,$(HOME)/.$@.conf))
