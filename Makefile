@@ -113,6 +113,7 @@ clean_zsh:
 zsh: clean_zsh
 	$(info $@: $(call inpath,$@))
 	$(info $@: $(call is_supported_version,$@))
+	$(and $(shell ls -1 ~ | grep .oh-my-zsh),$(error Please, install oh-my-zsh. See https://ohmyz.sh/#install))
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@/$@rc,$(HOME)/.$@rc))
 	@echo ----- $@ is done -----
 
