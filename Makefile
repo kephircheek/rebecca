@@ -100,12 +100,7 @@ endif
 vifm: clean_vifm
 	$(info $@: $(call in_path,$@))
 	$(info $@: $(call is_supported_version,$@))
-ifeq ($(OS_NAME),darwin)
-	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/$(CONFIG)/$@))
-endif
-ifeq ($(OS_NAME),linux)
 	$(info $@: $(call create_link,$(PROJECT_DIR)/$@,$(HOME)/.$@))
-endif
 	@echo ----- $@ is done -----
 
 clean_zsh:
