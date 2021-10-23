@@ -1,2 +1,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 alias pip=pip3
+
+# use macvim on macos
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias vim="mvim -v"
+fi
