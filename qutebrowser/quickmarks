@@ -12,3 +12,4 @@ sw-benchmark https://dev.solidwall.io/solidwall/tests/waf-integration-tests/-/tr
 sw-analyzer https://dev.solidwall.io/solidwall/solidwall-analyzer
 sw-deployment https://dev.solidwall.io/solidwall/deployment
 sw-storage https://dev.solidwall.io/solidwall/infrastructure/solidwall-storage
+sw-gitlab https://dev.solidwall.io/solidwall
