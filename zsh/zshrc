@@ -76,7 +76,7 @@ plugins=(
     web-search 
     docker 
     brew 
-    osx 
+    macos
     copybuffer 
     copyfile 
     copydir
