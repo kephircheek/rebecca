@@ -79,7 +79,7 @@ plugins=(
     macos
     copybuffer 
     copyfile 
-    copydir
+    copypath
 )
 
 source $ZSH/oh-my-zsh.sh
