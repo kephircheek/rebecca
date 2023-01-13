@@ -13,3 +13,7 @@ sw-analyzer https://dev.solidwall.io/solidwall/solidwall-analyzer
 sw-deployment https://dev.solidwall.io/solidwall/deployment
 sw-storage https://dev.solidwall.io/solidwall/infrastructure/solidwall-storage
 sw-gitlab https://dev.solidwall.io/solidwall
+sw-ng https://dev.solidwall.io/solidwall/ng/solidwall
+downton.keenetic.local http://192.168.2.1/dashboard
+downton.github https://github.com/kephircheek/downton
+kremlin.keenetic.local http://192.168.1.1/login#goto=%2Fdashboard
