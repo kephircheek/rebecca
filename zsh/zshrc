@@ -122,3 +122,8 @@ bindkey "^N" history-beginning-search-forward
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
   tmux a  || tmux new-session -s sys
 fi
+
+# Add local in PATH
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
