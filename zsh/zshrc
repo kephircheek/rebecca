@@ -117,3 +117,8 @@ complete -o nospace -C /usr/local/bin/mc mc
 # History searching 
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
+
+# Automatically start tmux on login in a remote server via ssh
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+  tmux a  || tmux new-session -s sys
+fi
