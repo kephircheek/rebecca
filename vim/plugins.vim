@@ -22,6 +22,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'integralist/vim-mypy'
 Plug 'posva/vim-vue'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'fisadev/vim-isort'
 
 " Color
 Plug 'NLKNguyen/papercolor-theme'
