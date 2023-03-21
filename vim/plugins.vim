@@ -25,6 +25,9 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fisadev/vim-isort'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Color
 Plug 'NLKNguyen/papercolor-theme'
 
