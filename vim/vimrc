@@ -56,7 +56,7 @@ let g:vifm_embed_term    = 1
 let g:loaded_netrw       = 1 " tells netrw.vim not to load as its been loaded already.
 let g:loaded_netrwPlugin = 1 " tells netrw.vim not to load as its been loaded already.
 "
-" Disable swap files 
+" Disable swap files
 set noswapfile
 "
 " Highlight current line number
