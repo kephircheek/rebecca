@@ -121,6 +121,9 @@ bindkey "^N" history-beginning-search-forward
 # Automatically start tmux on login in a remote server via ssh
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
   tmux a  || tmux new-session -s sys
+# Create default session 'sys' in tmux
+elif [[ -z "$TMUX" ]] && ([[ -z $(pgrep -u"$USER" tmux) ]] || ! tmux has-session -t sys); then
+    tmux new -s sys -d
 fi
 
 # Add local in PATH
